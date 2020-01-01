@@ -56,7 +56,7 @@ public class DAO {
     public String startFormatter(String start) {
         String[] startarray = start.split("Current time: ", 2);
         String split = startarray[startarray.length-1];
-        startarray = split.split(" ",0);
+        startarray = split.split("\\s+",0);
 
         String month = getMonthNumber(startarray[1]);
         String day = startarray[2];
@@ -70,7 +70,7 @@ public class DAO {
     public String nameFormatter(String name) {
         String[] namearray = name.split("Logged in ", 2);
         name = namearray[namearray.length-1];
-        namearray = name.split(" ", 2);
+        namearray = name.split("\\s+", 2);
         name = "Player identified as <" + namearray[0] + ">";
         return name;
     }
